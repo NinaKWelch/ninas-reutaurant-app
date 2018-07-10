@@ -1,4 +1,4 @@
-# ninas-reutaurant-app
+# ninas-restaurant-app
 Udacity Front-End Web Development Nanodegree Project 6 - Restaurant App
 
 # Website
