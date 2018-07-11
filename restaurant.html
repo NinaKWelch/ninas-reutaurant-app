@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html>
+<!-- Laguage for the page content -->
+<html lang="en">
 
 <head>
-  <!-- Normalize.css for better cross-browser consistency -->
-  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
-  <!-- Main CSS file -->
-  <link rel="stylesheet" href="css/styles.css" type="text/css">
-  <title>Restaurant Info</title>
+  <!-- Character encoding
+    https://en.wikipedia.org/wiki/UTF-8 -->
+  <meta charset="utf-8">
+
+  <title>Restaurant info</title>
+
+  <!-- Control layout on mobile browsers
+    https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TODO: Add Google Fonts -->
+
+  <!-- Fix issues with default styles on different browsers -->
+  <link href="https://necolas.github.io/normalize.css/latest/normalize.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body class="inside">
@@ -57,11 +70,11 @@
 
   <!-- Beginning scripts -->
   <!-- Database helpers -->
-  <script type="text/javascript" src="js/dbhelper.js"></script>
+  <script src="js/dbhelper.js"></script>
   <!-- Main javascript file -->
-  <script type="text/javascript" src="js/restaurant_info.js"></script>
+  <script src="js/restaurant_info.js"></script>
   <!-- Google Maps -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tKbW6A5pQ-eupxI56myUnHLqYCzOjKo&libraries=places&callback=initMap"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4&libraries=places&callback=initMap" async defer></script>
   <!-- End scripts -->
 
 </body>
