@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<!-- Laguage for the page content -->
+<html lang="en">
+
+<head>
+  <!-- Character encoding
+    https://en.wikipedia.org/wiki/UTF-8 -->
+  <meta charset="utf-8">
+
+  <title>Restaurant Reviews</title>
+
+  <!-- Control layout on mobile browsers
+    https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TODO: Add Google Fonts -->
+
+  <!-- Fix issues with default styles on different browsers -->
+  <link href="https://necolas.github.io/normalize.css/latest/normalize.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h1><a href="/">Restaurant Reviews</a></h1>
+    </nav>
+  </header>
+
+  <main id="maincontent">
+    <section id="map-container">
+      <div id="map"></div>
+    </section>
+    <section>
+      <div class="filter-options">
+        <h2>Filter Results</h2>
+        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+          <option value="all">All Neighborhoods</option>
+        </select>
+        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+          <option value="all">All Cuisines</option>
+        </select>
+      </div>
+      <ul id="restaurants-list"></ul>
+    </section>
+  </main>
+
+  <footer id="footer">
+    Copyright (c) 2018 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+  </footer>
+
+  <!-- Javascript -->
+  <script src="js/dbhelper.js"></script>
+  <script src="js/main.js"></script>
+  <!-- <script src="js/restaurant_info.js"></script> -->
+
+  <!-- Link to the Google Maps API
+    https://developers.google.com/maps/documentation/javascript/tutorial -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4&libraries=places&callback=initMap" async defer></script>
+
+</body>
+
+</html>
