@@ -1,66 +1,93 @@
 
 <!DOCTYPE html>
-<!-- Laguage for the page content -->
-<html lang="en">
+  <!-- Laguage for the page content -->
+  <html lang="en">
 
-<head>
-  <!-- Character encoding
+  <head>
+    <!-- Character encoding
     https://en.wikipedia.org/wiki/UTF-8 -->
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>Restaurant Reviews</title>
+    <title>Restaurant Reviews</title>
 
-  <!-- Control layout on mobile browsers
+    <!-- Control layout on mobile browsers
     https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- TODO: Add Google Fonts -->
+    <!-- Fix issues with default styles on different browsers -->
+    <link href="https://necolas.github.io/normalize.css/latest/normalize.css" rel="stylesheet">
 
-  <!-- Fix issues with default styles on different browsers -->
-  <link href="https://necolas.github.io/normalize.css/latest/normalize.css" rel="stylesheet">
+    <!-- Styles -->
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
 
-  <!-- Styles -->
-  <link href="css/styles.css" rel="stylesheet">
-</head>
+  <body>
+    <!-- Beginning header -->
+    <header>
+      <!-- Beginning nav -->
+      <nav>
+        <h1><a href="/">Restaurant Reviews</a></h1>
+      </nav>
+      <!-- End nav -->
 
-<body>
-  <header>
-    <nav>
-      <h1><a href="/">Restaurant Reviews</a></h1>
-    </nav>
-  </header>
+      <div class="flex-container">
+        <!-- Beginning map -->
+        <section id="map-container" class="flex-item">
+          <div id="map"></div>
+        </section>
+        <!-- Ending map -->
 
-  <main id="maincontent">
-    <section id="map-container">
-      <div id="map"></div>
-    </section>
-    <section>
-      <div class="filter-options">
-        <h2>Filter Results</h2>
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
-          <option value="all">All Neighborhoods</option>
-        </select>
-        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
-          <option value="all">All Cuisines</option>
-        </select>
+        <!-- Beginning search filters -->
+        <aside class="flex-item">
+          <h3>Filter Results:</h3>
+
+          <div class="filter-options flex-container">
+            <!-- Beginning location filter -->
+            <select id="neighborhoods-select" class="flex-item" name="neighborhoods" onchange="updateRestaurants()">
+              <option value="all">All Neighborhoods</option>
+            </select>
+            <!-- End location filter -->
+
+            <!-- Beginning cuisine filter -->
+            <select id="cuisines-select" class="flex-item" name="cuisines" onchange="updateRestaurants()">
+              <option value="all">All Cuisines</option>
+            </select>
+            <!-- End cuisine filter -->
+          </div><!-- /.flex-container -->
+        </aside>
+        <!-- End search filters -->
       </div>
-      <ul id="restaurants-list"></ul>
-    </section>
-  </main>
 
-  <footer id="footer">
-    Copyright (c) 2018 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
-  </footer>
+    </header>
+    <!-- End header -->
 
-  <!-- Javascript -->
-  <script src="js/dbhelper.js"></script>
-  <script src="js/main.js"></script>
-  <!-- <script src="js/restaurant_info.js"></script> -->
+    <!-- Beginning main -->
+    <main id="maincontent">
+      <!-- Beginning restaurant list -->
+      <article>
+        <ul id="restaurants-list" class="flex-container"></ul>
+      </article>
+      <!-- End restaurant list -->
+    </main>
+    <!-- End main -->
 
-  <!-- Link to the Google Maps API
+    <!-- Beginning footer -->
+    <footer id="footer">
+      <p>Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.</p>
+    </footer>
+    <!-- End footer -->
+
+    <!-- Beginning scripts -->
+    <!-- Database helpers -->
+    <script src="js/dbhelper.js"></script>
+    <!-- Main javascript file -->
+    <script src="js/main.js"></script>
+
+    <!-- Google Maps
     https://developers.google.com/maps/documentation/javascript/tutorial -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4&libraries=places&callback=initMap" async defer></script>
+    <!-- End scripts -->
 
-</body>
+  </body>
 
 </html>

@@ -1,82 +1,96 @@
 <!DOCTYPE html>
-<!-- Laguage for the page content -->
-<html lang="en">
+  <!-- Laguage for the page content -->
+  <html lang="en">
 
-<head>
-  <!-- Character encoding
-    https://en.wikipedia.org/wiki/UTF-8 -->
-  <meta charset="utf-8">
+  <head>
+    <!-- Character encoding -->
+    <meta charset="utf-8">
 
-  <title>Restaurant info</title>
+    <title>Restaurant info</title>
 
-  <!-- Control layout on mobile browsers
-    https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Control layout on mobile browsers -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- TODO: Add Google Fonts -->
+    <!-- Fix issues with default styles on different browsers -->
+    <link href="https://necolas.github.io/normalize.css/latest/normalize.css" rel="stylesheet">
 
-  <!-- Fix issues with default styles on different browsers -->
-  <link href="https://necolas.github.io/normalize.css/latest/normalize.css" rel="stylesheet">
+    <!-- Styles -->
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
 
-  <!-- Styles -->
-  <link href="css/styles.css" rel="stylesheet">
-</head>
+  <body>
+    <!-- Beginning header -->
+    <header>
+      <!-- Beginning nav -->
+      <nav>
+        <h1><a href="/">Restaurant Reviews</a></h1>
+      </nav>
+      <!-- End nav -->
 
-<body class="inside">
-  <!-- Beginning header -->
-  <header>
-    <!-- Beginning nav -->
-    <nav>
-      <h1><a href="/">Restaurant Reviews</a></h1>
-    </nav>
-    <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb" >
-      <li><a href="/">Home</a></li>
-    </ul>
-    <!-- End breadcrumb -->
-    <!-- End nav -->
-  </header>
-  <!-- End header -->
+      <!-- Beginning breadcrumb -->
+        <ul id="breadcrumb" class="flex-container">
+            <li><a href="/">Home</a></li>
+        </ul>
+        <!-- End breadcrumb -->
+    </header>
+    <!-- End header -->
 
-  <!-- Beginning main -->
-  <main id="maincontent">
-    <!-- Beginning map -->
-    <section id="map-container">
-      <div id="map"></div>
-    </section>
-    <!-- End map -->
-    <!-- Beginning restaurant -->
-    <section id="restaurant-container">
-      <h1 id="restaurant-name"></h1>
-      <img id="restaurant-img">
-      <p id="restaurant-cuisine"></p>
-      <p id="restaurant-address"></p>
-      <table id="restaurant-hours"></table>
-    </section>
-    <!-- end restaurant -->
-    <!-- Beginning reviews -->
-    <section id="reviews-container">
-      <ul id="reviews-list"></ul>
-    </section>
-    <!-- End reviews -->
-  </main>
-  <!-- End main -->
+    <!-- Beginning main -->
+    <main id="maincontent" class="flex-container">
+      <!-- Beginning restaurant -->
+        <div class="flex-item">
+            <div class="flex-container">
+              <!-- Beginning restaurant location -->
+              <section id="map-container" class="flex-item">
+                <div id="map"></div>
+              </section>
+              <!-- End restaurant location -->
 
-  <!-- Beginning footer -->
-  <footer id="footer">
-    Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
-  </footer>
-  <!-- End footer -->
+              <!-- Beginning restaurant info -->
+              <section id="restaurant-container" class="flex-item">
+                  <div class="flex-container">
+                    <h3 id="restaurant-name" class="flex-item"></h2>
+                    <img id="restaurant-img" class="flex-item">
+                    <h5 id="restaurant-cuisine" class="flex-item"></h5>
+                    <p id="restaurant-address" class="flex-item"></p>
+                    <div class="flex-item">
+                        <h4>Opening times:</h4>
 
-  <!-- Beginning scripts -->
-  <!-- Database helpers -->
-  <script src="js/dbhelper.js"></script>
-  <!-- Main javascript file -->
-  <script src="js/restaurant_info.js"></script>
-  <!-- Google Maps -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4&libraries=places&callback=initMap" async defer></script>
-  <!-- End scripts -->
+                        <table id="restaurant-hours" class="flex-container"></table>
+                    </div><!-- /.flex-item-->
+                  </div><!-- /.flex-container-->
+              </section>
+              <!-- End restaurant info -->
 
-</body>
+            </div><!-- /.flex-container-->
+        </div><!-- /.flex-item-->
+      <!-- End restaurant -->
+
+        <!-- Beginning reviews -->
+        <section id="reviews-container" class="flex-item">
+          <ul id="reviews-list" class="flex-container"></ul>
+        </section>
+        <!-- End reviews -->
+
+    </main>
+    <!-- End main -->
+
+    <!-- Beginning footer -->
+    <footer id="footer">
+      <p>Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.</p>
+    </footer>
+    <!-- End footer -->
+
+    <!-- Beginning scripts -->
+    <!-- Database helpers -->
+    <script src="js/dbhelper.js"></script>
+    <!-- Main javascript file -->
+    <script src="js/restaurant_info.js"></script>
+
+    <!-- Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4&libraries=places&callback=initMap" async defer></script>
+    <!-- End scripts -->
+
+  </body>
 
 </html>
