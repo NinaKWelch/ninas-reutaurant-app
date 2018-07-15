@@ -2,11 +2,27 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
 
+/*
+* Colors
+* background - f2f2f2 (off white), fdfdfd (white)
+* font - 666 (gray), 999 (light gray), fdfdfd (white), 699 (green), f96 (orange), ffc (yellow)
+* nav - 699
+* link - 9cc (blue), 699 (green - hover)
+* footer - 366 (dark green)
+*
+*/
 
 /*
-*
+* Headings
+* h1 - app name
+* h2 - section title (filter results & reviews)
+* h3 - restaurant names
+* h4 - retaurnat cuisines
+* h5 - restaurant neighbourhood
+*/
+
+/*
 * Global Styles
-*
 */
 
 * {
@@ -20,7 +36,7 @@
 }
 
 body {
-  background-color: #f2f3f4;
+  background-color: #f2f2f2;
   font-family: 'Open Sans', sans-serif; /* Google fonts Open Sans, 300, 400, 600, 700 */
   font-size: 16px;
   color: #666;
@@ -30,15 +46,158 @@ img {
   width: 100%;
 }
 
-/* Flexbox styles
-   https://css-tricks.com/snippets/css/a-guide-to-flexbox */
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+
+/*
+* Flexbox styles
+* https://css-tricks.com/snippets/css/a-guide-to-flexbox
+*/
+
+.flex-container,
+.flex-container-center {
+  display: flex; /* inline-flex container for all its direct children */
+    flex-flow: row wrap; /* flex-items will wrap onto multiple lines */
+}
+
 .flex-container {
-	display: flex; /* inline-flex container for all its direct children */
-  	flex-flow: row wrap; /* flex-items will wrap onto multiple lines */
-  	justify-content: flex-start; /* items are evenly distributed in the line */
+    justify-content: flex-start; /* items are evenly distributed in the line */
+}
+
+.flex-container-center {
+    justify-content: center; /* items are centered */
 }
 
 .flex-item {
     width: 100%; /* default width */
 }
 
+.flex-item-1 {
+  order: 1; /* first in line */
+  width: 70%;
+}
+
+.flex-item-2 {
+  order: 2; /* second in line */
+  width: 30%;
+}
+
+.flex-item-3 {
+  order: 3; /* third in line */
+  width: 40%;
+}
+
+.flex-item-4 {
+  order: 3; /* fourth in line */
+  width: 60%;
+}
+
+/*
+*
+* Header
+*
+*/
+
+/* Navigantion */
+.main-nav {
+  background-color: #699;
+  height: 60px;
+  border-bottom: 3px solid   #ffc;
+}
+
+.brand {
+  /* Google fonts Roboto, 100, 300, 400, 500 */
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+}
+
+.brand a,
+.brand a:hover {
+  color: #fdfdfd;
+  font-weight: 500;
+}
+
+.brand a span,
+.brand a span:hover {
+  color: #ffc;
+  font-weight: 300;
+}
+
+
+/* Map */
+
+#map {
+  height: 340px; /* needs to have height to be seen */
+}
+
+
+/*
+* Restaurant listings
+*/
+
+.restaurant-listing a {
+  margin: 0 0.5em 1em;
+  background-color: #fdfdfd;
+  color: #666;
+
+}
+.restaurant-listing a:hover {
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.listing-img {
+  border-left: 3px solid #f96;
+}
+
+.listing-name,
+.listing-cuisine {
+  border-top: 2px solid #f96;
+  padding: 0.4em 0 0.4em 0.4em;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.listing-name {
+  background-color: #f96;
+  border-bottom-right-radius: 15px;
+  text-align: left;
+  color: #fdfdfd;
+}
+
+.listing-cuisine {
+  font-weight: 400;
+}
+
+.listing-area {
+  color: #699;
+  font-size: 0.85em;
+  line-height: 3em;
+}
+
+.listing-address {
+  font-size: 0.85em;
+  line-height: 1.5em;
+  padding: 0 1em;
+}
+
+.listing-info {
+    display: none; /* Don't show the info button on small screens */
+}
+
+/**/
+ {
+
+}
+/**/
+ {
+
+}
+/**/
+ {
+
+}

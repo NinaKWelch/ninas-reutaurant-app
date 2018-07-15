@@ -137,28 +137,46 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
+  li.className = 'restaurant-listing flex-item'; // add a flex-item class to list item
+
+  const restaurantLink = document.createElement('a'); // wrap the contents of the list item in a link
+  restaurantLink.href = DBHelper.urlForRestaurant(restaurant);
+  restaurantLink.className = 'flex-container'; // add a flex-container class to list item
+  li.append(restaurantLink);
 
   const image = document.createElement('img');
-  image.className = 'restaurant-img';
+  image.className = 'listing-img flex-item-3'; // add a flex-item-3 class to image
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  li.append(image);
+  restaurantLink.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h3');
+  name.className = 'listing-name flex-item-1'; // add a flex-item-1 class to name
   name.innerHTML = restaurant.name;
-  li.append(name);
+  restaurantLink.append(name);
 
-  const neighborhood = document.createElement('p');
+  const cuisineType = document.createElement('h4');
+  cuisineType.className = 'listing-cuisine flex-item-2'; // add a flex-item-2 class to cuisine
+  cuisineType.innerHTML = restaurant.cuisine_type;
+  restaurantLink.append(cuisineType);
+
+  const more = document.createElement('div');
+  more.className = 'flex-item-4'; // add a flex-item-4 class to rest of the info
+  restaurantLink.append(more);
+
+  const neighborhood = document.createElement('h5');
+  neighborhood.className = 'listing-area';
   neighborhood.innerHTML = restaurant.neighborhood;
-  li.append(neighborhood);
+  more.append(neighborhood);
 
   const address = document.createElement('p');
+  address.className = 'listing-address';
   address.innerHTML = restaurant.address;
-  li.append(address);
+  more.append(address);
 
-  const more = document.createElement('a');
-  more.innerHTML = 'View Details';
-  more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more)
+  const info = document.createElement('button');
+  info.className = 'listing-info';
+  info.innerHTML = 'View Details';
+  more.append(info);
 
   return li
 }
