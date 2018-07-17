@@ -76,14 +76,17 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
   for (let key in operatingHours) {
-    const row = document.createElement('tr');
+    const row = document.createElement('div');
+    row.className = 'flex-container';
 
-    const day = document.createElement('td');
+    const day = document.createElement('div');
     day.innerHTML = key;
+    day.className = 'weekdays flex-item-1';
     row.appendChild(day);
 
-    const time = document.createElement('td');
+    const time = document.createElement('div');
     time.innerHTML = operatingHours[key];
+    time.className = 'opening-hours flex-item-2';
     row.appendChild(time);
 
     hours.appendChild(row);

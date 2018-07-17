@@ -21,7 +21,8 @@
 * h5 - restaurant neighbourhood
 */
 
-/*
+
+/**
 * Global Styles
 */
 
@@ -77,7 +78,8 @@ footer {
   color: #fdfdfd;
 }
 
-/*
+
+/**
 * Flexbox styles
 * https://css-tricks.com/snippets/css/a-guide-to-flexbox
 */
@@ -116,10 +118,9 @@ footer {
   order: 3; /* fourth in line */
 }
 
-/*
-*
+
+/**
 * Header
-*
 */
 
 /* Navigantion */
@@ -154,8 +155,19 @@ footer {
   color: #699;
 }
 
-/* Map */
+/* Breadcrumbs */
+.breadcrumbs {
+  padding: 0.4em 1em 0.5em;
+  color: #999;
+  border-bottom: 1px solid #dcdcdc;
+}
 
+.breadcrumbs li+li:before {
+    padding: 5px;
+    content: "/\00a0";
+}
+
+/* Map */
 #map {
   height: 300px; /* needs to have a height to be seen */
 }
@@ -165,9 +177,7 @@ footer {
   border-right: 4px solid  #fdfdfd;
 }
 
-
 /* Filters */
-
 .filter-options {
   background-color: #fdfdfd;
   padding: 1.5em 3em;
@@ -192,10 +202,8 @@ footer {
 }
 
 
-/*
-*
-* Restaurant listings
-*
+/**
+* Restaurant listings (homepage)
 */
 
 .restaurant-selection {
@@ -267,32 +275,11 @@ footer {
 }
 
 
-/*
-*
-* Breadcrumbs
-*
+/**
+* Restaurant reviews at reviews page
 */
 
-.breadcrumbs {
-  padding: 0.4em 1em 0.5em;
-  color: #999;
-  border-bottom: 1px solid #dcdcdc;
-}
-
-
-.breadcrumbs li+li:before {
-    padding: 5px;
-    content: "/\00a0";
-}
-
-
-/*
-*
-* Restaurant reviews
-*
-*/
-
-
+/* Avarage rating */
 .ratings-overview {
   background-color: #fdfdfd;
   padding: 1em 0;
@@ -305,6 +292,7 @@ footer {
   color: #999;
 }
 
+/* Customer reviews*/
 .reviews {
   padding: 2em 1em 1em;
   border-top: 1px solid #dcdcdc;
@@ -358,10 +346,8 @@ footer {
 }
 
 
-/*
-*
-* Restaurant info
-*
+/**
+* Restaurant info (reviews page)
 */
 
 .restaurant-info {
@@ -388,35 +374,49 @@ footer {
 }
 
 .opening-times {
+  margin-left: 10%;
   color: #999;
   font-size: 0.8em;
 }
 
 .opening-times h4,
-.opening-times td {
+.weekdays,
+.opening-hours {
   text-align: left;
+  padding: 0.5em 0;
 }
 
-.opening-times h4 {
-  line-height: 3em;
+.weekdays {
+  width: 35%;
 }
 
-.opening-times td:first-of-type {
-  width: 110px;
-  padding-left: 30px;
+.opening-hours {
+  width: 55%;
 }
 
 
+/**
+* Responsive layout
+*/
 
-/**/
+
+/* extra small screens */
+@media screen and (max-width: 310px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* medium screens */
+{
+
+}
+
+/* large screens */
  {
 
 }
-/**/
- {
 
-}
-/**/
- {
 
-}
+
+
