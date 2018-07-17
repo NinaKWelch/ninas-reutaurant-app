@@ -3,6 +3,8 @@ let restaurants,
   cuisines
 var map
 var markers = []
+/*var ratings = []
+var averageRating = 0*/
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -133,6 +135,43 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 }
 
 /**
+ * Calculate average rating from reviews and add them to the webpage.
+ */
+
+/*calcAvarageRating = (reviews = self.restaurant.reviews) => {
+  const stars = document.createElement('span');
+  stars.className = 'rating-stars';
+
+  reviews.forEach(review => {
+    var rating = review.rating;
+    ratings.push(rating);
+  });
+  averageRating = ratings => ratings.reduce((a, b) => a + b, 0) / ratings.length;
+  stars.append(averageRating);
+}
+
+var ratings = [];
+var sum = 0;
+var averageRating = 0;
+
+function calcAvarageRating() {
+  for (var i = 0; i < restaurants.length; i++) {
+  var reviews = restaurants[i].reviews;
+
+  for (var j = 0; j < reviews.length; j++) {
+    var rating = reviews[j].rating;
+      ratings.push(rating);
+    };
+  sum = ratings.reduce(add, 0);
+  averageRating = sum / reviews.length;
+  return averageRating;
+  }
+}
+*/
+
+
+
+/**
  * Create restaurant HTML.
  */
 createRestaurantHTML = (restaurant) => {
@@ -160,7 +199,7 @@ createRestaurantHTML = (restaurant) => {
   restaurantLink.append(cuisineType);
 
   const more = document.createElement('div');
-  more.className = 'flex-item-4'; // add a flex-item-4 class to rest of the info
+  more.className = 'more-info flex-item-4'; // add a flex-item-4 class to rest of the info
   restaurantLink.append(more);
 
   const neighborhood = document.createElement('h5');
@@ -168,10 +207,15 @@ createRestaurantHTML = (restaurant) => {
   neighborhood.innerHTML = restaurant.neighborhood;
   more.append(neighborhood);
 
-  const address = document.createElement('p');
-  address.className = 'listing-address';
-  address.innerHTML = restaurant.address;
-  more.append(address);
+  const ratingAvarage = document.createElement('p');
+  ratingAvarage.className = 'listing-rating';
+  ratingAvarage.innerHTML = '<i class="fas fa-star"></i> ' + ' <i class="fas fa-star"></i> ' + ' <i class="fas fa-star"></i> ' + ' <i class="fas fa-star-half-alt"></i> ' + ' <i class="far fa-star"></i>';
+  more.append(ratingAvarage);
+
+  const reviewLength = document.createElement('p');
+  reviewLength.className = 'listing-reviews';
+  reviewLength.innerHTML = 'Reviews: ' + restaurant.reviews.length;
+  more.append(reviewLength);
 
   const info = document.createElement('button');
   info.className = 'listing-info';
@@ -180,6 +224,7 @@ createRestaurantHTML = (restaurant) => {
 
   return li
 }
+
 
 /**
  * Add markers for current restaurants to the map.

@@ -17,6 +17,9 @@
     <!-- Fix issues with default styles on different browsers -->
     <link href="https://necolas.github.io/normalize.css/latest/normalize.css" rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
     <!-- Styles -->
     <link href="css/styles.css" rel="stylesheet">
   </head>
@@ -26,34 +29,37 @@
     <header>
       <!-- Beginning nav -->
       <nav class="main-nav flex-container-center">
-        <h1 class="brand"><a href="/"><span>Restaurant</span> Reviews</a></h1>
+        <h1 class="brand"><a href="/">
+          <i class="fas fa-utensils"></i>
+          <span>Restaurant</span> Reviews</a>
+        </h1>
       </nav>
       <!-- End nav -->
 
       <div class="flex-container">
         <!-- Beginning map -->
         <section id="map-container" class="flex-item">
-          <div id="map"></div>
+          <div id="map" class="restaurant-map"></div>
         </section>
         <!-- Ending map -->
 
         <!-- Beginning search filters -->
-        <aside class="flex-item">
-          <h2>Filter Results:</h2>
+        <aside class="filter-options flex-item">
+          <h2 class="filter-title">Restaurant Filter</h2>
 
-          <div class="filter-options flex-container">
-            <!-- Beginning location filter -->
-            <select id="neighborhoods-select" class="flex-item" name="neighborhoods" onchange="updateRestaurants()">
-              <option value="all">All Neighborhoods</option>
-            </select>
+          <div class="flex-container-center">
+           <!-- Beginning location filter -->
+              <select id="neighborhoods-select" class="filter-area flex-item" name="neighborhoods" onchange="updateRestaurants()">
+                <option value="all">All Neighborhoods</option>
+              </select>
             <!-- End location filter -->
 
             <!-- Beginning cuisine filter -->
-            <select id="cuisines-select" class="flex-item" name="cuisines" onchange="updateRestaurants()">
-              <option value="all">All Cuisines</option>
-            </select>
+              <select id="cuisines-select" class="filter-cuisine flex-item" name="cuisines" onchange="updateRestaurants()">
+                <option value="all">All Cuisines</option>
+              </select>
             <!-- End cuisine filter -->
-          </div><!-- /.flex-container -->
+          </div><!-- /.flex-container-center -->
         </aside>
         <!-- End search filters -->
       </div><!-- /.flex-container -->
@@ -64,7 +70,7 @@
     <!-- Beginning main -->
     <main id="maincontent">
       <!-- Beginning restaurant list -->
-      <article>
+      <article class="restaurant-selection">
         <ul id="restaurants-list" class="flex-container"></ul>
       </article>
       <!-- End restaurant list -->
@@ -73,7 +79,7 @@
 
     <!-- Beginning footer -->
     <footer id="footer">
-      <p>Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.</p>
+      <p>Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a><br> All Rights Reserved.</p>
     </footer>
     <!-- End footer -->
 

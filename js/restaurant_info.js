@@ -96,6 +96,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
+  title.className = 'reviews-title';
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
@@ -117,21 +118,31 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
-  const name = document.createElement('p');
-  name.innerHTML = review.name;
-  li.appendChild(name);
+  li.className = 'reviews-listings flex-item';
 
-  const date = document.createElement('p');
+  const section = document.createElement('section');
+  section.className = 'flex-container';
+  li.append(section);
+
+  const name = document.createElement('h4');
+  name.className = 'reviews-name flex-item';
+  name.innerHTML = review.name;
+  section.appendChild(name);
+
+  const date = document.createElement('time');
+  date.className = 'reviews-date flex-item';
   date.innerHTML = review.date;
-  li.appendChild(date);
+  section.appendChild(date);
 
   const rating = document.createElement('p');
+  rating.className = 'reviews-rating flex-item';
   rating.innerHTML = `Rating: ${review.rating}`;
-  li.appendChild(rating);
+  section.appendChild(rating);
 
   const comments = document.createElement('p');
+  comments.className = 'reviews-text flex-item';
   comments.innerHTML = review.comments;
-  li.appendChild(comments);
+  section.appendChild(comments);
 
   return li;
 }

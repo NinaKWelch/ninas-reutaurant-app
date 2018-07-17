@@ -14,6 +14,9 @@
     <!-- Fix issues with default styles on different browsers -->
     <link href="https://necolas.github.io/normalize.css/latest/normalize.css" rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
     <!-- Styles -->
     <link href="css/styles.css" rel="stylesheet">
   </head>
@@ -22,13 +25,16 @@
     <!-- Beginning header -->
     <header>
       <!-- Beginning nav -->
-      <nav>
-        <h1><a href="/">Restaurant Reviews</a></h1>
+      <nav class="main-nav flex-container-center">
+        <h1 class="brand"><a href="/">
+          <i class="fas fa-utensils"></i>
+          <span>Restaurant</span> Reviews</a>
+        </h1>
       </nav>
       <!-- End nav -->
 
       <!-- Beginning breadcrumb -->
-        <ul id="breadcrumb" class="flex-container">
+        <ul id="breadcrumb" class="breadcrumbs flex-container">
             <li><a href="/">Home</a></li>
         </ul>
         <!-- End breadcrumb -->
@@ -36,48 +42,49 @@
     <!-- End header -->
 
     <!-- Beginning main -->
-    <main id="maincontent" class="flex-container">
-      <!-- Beginning restaurant -->
-        <div class="flex-item">
-            <div class="flex-container">
-              <!-- Beginning restaurant location -->
-              <section id="map-container" class="flex-item">
-                <div id="map"></div>
-              </section>
-              <!-- End restaurant location -->
+    <main id="maincontent" class="review-page flex-container">
+      <!-- Beginning restaurant image -->
+      <img id="restaurant-img" class="flex-item">
+      <!-- End restaurant image -->
 
-              <!-- Beginning restaurant info -->
-              <section id="restaurant-container" class="flex-item">
-                  <div class="flex-container">
-                    <h3 id="restaurant-name" class="flex-item"></h2>
-                    <img id="restaurant-img" class="flex-item">
-                    <h4 id="restaurant-cuisine" class="flex-item"></h4>
-                    <p id="restaurant-address" class="flex-item"></p>
-                    <div class="flex-item">
-                        <h4>Opening times:</h4>
+      <!-- Beginning restaurant overview -->
+      <div class="ratings-overview flex-item">
+         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><span class="total-reviews"> ( 3 )</span>
+      </div>
+     <!-- End restaurant overview -->
 
-                        <table id="restaurant-hours" class="flex-container"></table>
-                    </div><!-- /.flex-item-->
-                  </div><!-- /.flex-container-->
-              </section>
-              <!-- End restaurant info -->
+      <!-- Beginning reviews -->
+      <article id="reviews-container" class="reviews flex-item">
+        <ul id="reviews-list" class="flex-container"></ul>
+      </article>
+      <!-- End reviews -->
 
-            </div><!-- /.flex-container-->
-        </div><!-- /.flex-item-->
-      <!-- End restaurant -->
+      <!-- Beginning restaurant info -->
+      <section id="restaurant-container" class="restaurant-info flex-item">
+          <div class="flex-container">
+            <h3 id="restaurant-name" class="name flex-item"></h3>
+            <h4 id="restaurant-cuisine" class="cuisine flex-item"></h4>
+            <address id="restaurant-address" class="address flex-item"></address>
+            <div class="opening-times flex-item">
+                <h4>Opening times:</h4>
 
-        <!-- Beginning reviews -->
-        <section id="reviews-container" class="flex-item">
-          <ul id="reviews-list" class="flex-container"></ul>
-        </section>
-        <!-- End reviews -->
+                <table id="restaurant-hours" class="flex-container"></table>
+            </div><!-- /.flex-item-->
+          </div><!-- /.flex-container-->
+      </section>
+      <!-- End restaurant info -->
 
+      <!-- Beginning restaurant location -->
+      <section id="map-container" class="flex-item">
+         <div id="map" class="restaurant-map"></div>
+      </section>
+      <!-- End restaurant location -->
     </main>
     <!-- End main -->
 
     <!-- Beginning footer -->
     <footer id="footer">
-      <p>Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.</p>
+      <p>Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews<br></strong></a> All Rights Reserved.</p>
     </footer>
     <!-- End footer -->
 
