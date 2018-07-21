@@ -4,7 +4,7 @@ let restaurants,
 var map
 var markers = []
 /*var ratings = []
-var averageRating = 0*/
+var averageRating = 0;*/
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -207,20 +207,29 @@ createRestaurantHTML = (restaurant) => {
   neighborhood.innerHTML = restaurant.neighborhood;
   more.append(neighborhood);
 
-  const ratingAvarage = document.createElement('p');
-  ratingAvarage.className = 'listing-rating';
-  ratingAvarage.innerHTML = '<i class="fas fa-star"></i> ' + ' <i class="fas fa-star"></i> ' + ' <i class="fas fa-star"></i> ' + ' <i class="fas fa-star-half-alt"></i> ' + ' <i class="far fa-star"></i>';
-  more.append(ratingAvarage);
-
-  const reviewLength = document.createElement('p');
-  reviewLength.className = 'listing-reviews';
-  reviewLength.innerHTML = 'Reviews: ' + restaurant.reviews.length;
-  more.append(reviewLength);
+  const address = document.createElement('address');
+  address.className = 'listing-address';
+  address.innerHTML = restaurant.address;
+  more.append(address);
 
   const info = document.createElement('button');
   info.className = 'listing-info';
   info.innerHTML = 'View Details';
   more.append(info);
+
+  const rating = document.createElement('div');
+  rating.className = 'listing-stats';
+  more.append(rating);
+
+  const ratingAvarage = document.createElement('span');
+  ratingAvarage.className = 'listing-rating';
+  ratingAvarage.innerHTML = '<i class="fas fa-star"></i> ' + ' <i class="fas fa-star"></i> ' + ' <i class="fas fa-star"></i> ' + ' <i class="fas fa-star-half-alt"></i> ' + ' <i class="far fa-star"></i>';
+  rating.append(ratingAvarage);
+
+  const reviewLength = document.createElement('span');
+  reviewLength.className = 'listing-reviews';
+  reviewLength.innerHTML = ' \( ' + restaurant.reviews.length + ' \)';
+  rating.append(reviewLength);
 
   return li
 }

@@ -34,15 +34,11 @@
       <!-- End nav -->
 
       <!-- Beginning breadcrumb -->
-        <ul id="breadcrumb" class="breadcrumbs flex-container">
-            <li><a href="/">Home</a></li>
-        </ul>
-        <!-- End breadcrumb -->
-    </header>
-    <!-- End header -->
+      <ul id="breadcrumb" class="breadcrumbs flex-container">
+          <li><a href="/">Home</a></li>
+      </ul>
+      <!-- End breadcrumb -->
 
-    <!-- Beginning main -->
-    <main id="maincontent" class="review-page flex-container">
       <!-- Beginning restaurant image -->
       <img id="restaurant-img" class="flex-item">
       <!-- End restaurant image -->
@@ -52,7 +48,11 @@
          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><span class="total-reviews"> ( 3 )</span>
       </aside>
      <!-- End restaurant overview -->
+    </header>
+    <!-- End header -->
 
+    <!-- Beginning main -->
+    <main id="maincontent" class="content flex-container">
       <!-- Beginning reviews -->
       <article id="reviews-container" class="reviews flex-item">
         <ul id="reviews-list" class="flex-container"></ul>
@@ -62,23 +62,26 @@
       <!-- Beginning restaurant info -->
       <section id="restaurant-container" class="restaurant-info flex-item">
           <div class="flex-container">
+            <img id="restaurant-img-2" class="flex-item">
             <h3 id="restaurant-name" class="name flex-item"></h3>
             <h4 id="restaurant-cuisine" class="cuisine flex-item"></h4>
             <address id="restaurant-address" class="address flex-item"></address>
             <div class="opening-times flex-item">
-                <h4>Opening times:</h4>
+                <h4>Opening times</h4>
 
                 <div id="restaurant-hours"></div>
             </div><!-- /.flex-item-->
           </div><!-- /.flex-container-->
+
+          <!-- Beginning restaurant location -->
+          <aside id="map-container" class="flex-item">
+             <div id="map" class="restaurant-map"></div>
+          </aside>
+          <!-- End restaurant location -->
       </section>
       <!-- End restaurant info -->
 
-      <!-- Beginning restaurant location -->
-      <section id="map-container" class="flex-item">
-         <div id="map" class="restaurant-map"></div>
-      </section>
-      <!-- End restaurant location -->
+
     </main>
     <!-- End main -->
 
