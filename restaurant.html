@@ -23,9 +23,9 @@
 
   <body>
     <!-- Beginning header -->
-    <header>
+    <header tabindex="0">
       <!-- Beginning nav -->
-      <nav class="main-nav flex-container-center">
+      <nav class="main-nav">
         <h1 class="brand"><a href="/">
           <i class="fas fa-utensils"></i>
           <span>Restaurant</span> Reviews</a>
@@ -34,7 +34,7 @@
       <!-- End nav -->
 
       <!-- Beginning breadcrumb -->
-      <ul id="breadcrumb" class="breadcrumbs flex-container">
+      <ul id="breadcrumb" tabindex="1" class="breadcrumbs flex-container">
           <li><a href="/">Home</a></li>
       </ul>
       <!-- End breadcrumb -->
@@ -52,7 +52,7 @@
     <!-- End header -->
 
     <!-- Beginning main -->
-    <main id="maincontent" class="content flex-container">
+    <main id="maincontent" tabindex="2" class="content flex-container">
       <!-- Beginning reviews -->
       <article id="reviews-container" class="reviews flex-item">
         <ul id="reviews-list" class="flex-container"></ul>
@@ -74,7 +74,7 @@
           </div><!-- /.flex-container-->
 
           <!-- Beginning restaurant location -->
-          <aside id="map-container" class="flex-item">
+          <aside id="map-container" class="flex-item" area-role="local map">
              <div id="map" class="restaurant-map"></div>
           </aside>
           <!-- End restaurant location -->

@@ -176,30 +176,31 @@ function calcAvarageRating() {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
-  li.className = 'restaurant-listing flex-item'; // add a flex-item class to list item
+  li.className = 'restaurant-listing flex-item';
 
-  const restaurantLink = document.createElement('a'); // wrap the contents of the list item in a link
+  const restaurantLink = document.createElement('a');
   restaurantLink.href = DBHelper.urlForRestaurant(restaurant);
-  restaurantLink.className = 'flex-container'; // add a flex-container class to list item
+  restaurantLink.className = 'flex-container';
   li.append(restaurantLink);
 
   const image = document.createElement('img');
-  image.className = 'listing-img flex-item-3'; // add a flex-item-3 class to image
+  image.className = 'listing-img flex-item-3';
+  image.alt = restaurant.alt;
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   restaurantLink.append(image);
 
   const name = document.createElement('h3');
-  name.className = 'listing-name flex-item-1'; // add a flex-item-1 class to name
+  name.className = 'listing-name flex-item-1';
   name.innerHTML = restaurant.name;
   restaurantLink.append(name);
 
   const cuisineType = document.createElement('h4');
-  cuisineType.className = 'listing-cuisine flex-item-2'; // add a flex-item-2 class to cuisine
+  cuisineType.className = 'listing-cuisine flex-item-2';
   cuisineType.innerHTML = restaurant.cuisine_type;
   restaurantLink.append(cuisineType);
 
   const more = document.createElement('div');
-  more.className = 'more-info flex-item-4'; // add a flex-item-4 class to rest of the info
+  more.className = 'more-info flex-item-4';
   restaurantLink.append(more);
 
   const neighborhood = document.createElement('h5');
@@ -248,3 +249,5 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 }
+
+

@@ -52,6 +52,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   color: #666;
+  position: relative;
 }
 
 img {
@@ -73,14 +74,21 @@ a:hover {
   color: #366;
 }
 
-select {
-  font-family: inherit;
-}
 
 header {
   background-color: #fdfdfd;
   -webkit-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
           box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+nav {
+  width: 100%;
+  position: fixed; /* keep nav at the top of the page when scrolled */
+  z-index: 3; /* make nav display on top of the map */
+}
+
+select {
+  font-family: inherit;
 }
 
 footer {
@@ -90,7 +98,6 @@ footer {
   font-size: 0.85em;
   color: #fdfdfd;
 }
-
 
 /**
 * Flexbox styles
@@ -142,6 +149,10 @@ footer {
 #map {
   height: 300px; /* needs to have a height to be seen */
   background-color: #f2f2f2;
+}
+
+.main-map {
+   margin-top: 53px; /* adjust for the nav fixed position */
 }
 
 .area-map,
@@ -209,9 +220,14 @@ footer {
 
 /* Breadcrumbs (reviews page) */
 .breadcrumbs {
+
   padding: 0.4em 1em 0.5em;
   color: #999;
   border-bottom: 1px solid #dcdcdc;
+}
+
+.breadcrumbs li {
+  margin-top: 53px; /* adjust for the nav fixed position */
 }
 
 .breadcrumbs li+li:before {
@@ -273,28 +289,29 @@ footer {
   font-weight: 400;
 }
 
+/* Show image and restaurant info side be side */
 .listing-img {
   width: 40%;
 }
 
 .more-info {
   width: 60%;
-  font-size: 0.85em;
 }
 
 .listing-area {
   color: #699;
   font-size: 1em;
-  padding-top: 9%;
+  padding-top: 8%;
 }
 
 .listing-address {
-  padding: 0 15%;
   font-size: 0.75em;
+  padding-top: 4%;
 }
 
 .listing-stats {
   padding-top: 0.5em;
+  padding-top: 4%;
 }
 
 .listing-rating {
@@ -415,7 +432,7 @@ footer {
 }
 
 .opening-hours {
-  width: 140px;;
+  width: 145px;;
   text-align: left;
 }
 
@@ -458,17 +475,12 @@ footer {
   */
 
   .listing-area {
-    font-size: 1.1em;
-    padding-bottom: 0.3em;
+    padding-top: 10%;
   }
 
-  .listing-address {
-    padding: 0 18%;
-    font-size: 0.85em;
-  }
-
+  .listing-address,
   .listing-stats {
-    font-size: 1.2em;
+    padding-top: 5%;
   }
 }
 
@@ -498,6 +510,11 @@ footer {
   .brand {
     font-size: 1.2em;
      margin-top: 12px;
+  }
+
+  .main-map,
+  .breadcrumbs li {
+    margin-top: 62px; /* adjust for the nav fixed position */
   }
 }
 
@@ -530,13 +547,8 @@ footer {
   * Restaurant listings (homepage)
   */
 
-  .listing-area {
-    padding: 1.3em 0 0.5em;
-  }
-
   .listing-address {
-    padding: 0 16%;
-    font-size: 0.95em;
+    font-size: 0.85em;
   }
 
   /**
@@ -603,7 +615,7 @@ footer {
 
   .listing-name {
     background-color: #fdfdfd;
-    padding: 1em 0;
+    padding-top: 8%;
     text-align: center;
     font-weight: 600;
     color: #f96;
@@ -615,19 +627,20 @@ footer {
   }
 
   .listing-area {
-    padding: 0;
-    font-size: 0.95em;
+    padding-top: 4%;
+    font-size: 0.9em;
   }
 
   .listing-address {
-    padding: 0;
-    font-size: 0.8em;
+    padding-top: 2%;
+    font-size: 0.75em;
   }
 
   .listing-stats {
-    margin-top: 1.5em;
+    margin-top: 8%;
     background-color: #f2f2f2;
     padding: 0.75em 0;
+    font-size: 0.9em;
   }
 }
 
@@ -650,6 +663,7 @@ footer {
 
   .filter-options {
     width: calc((100% / 5) * 2);
+    margin-top: 62px; /* adjust for the nav fixed position */
     padding: 1em 3%;
   }
 
@@ -666,13 +680,16 @@ footer {
    * Restaurant listings (homepage)
    */
 
-  .listing-name,
-  .listing-cuisine {
-    font-size: 1em;
+  .listing-name {
+    font-size: 1.1em;
   }
 
   .listing-address {
     font-size: 0.9em;
+  }
+
+  .listing-stats {
+    font-size: 1em;
   }
 
   /**
@@ -697,7 +714,7 @@ footer {
 }
 
 /* Minimum width 800px */
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 810px) {
   /*
    * Header
    */
@@ -751,23 +768,24 @@ footer {
             box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
   }
 
-  .listing-name {
-    padding: 1.2em 0 1em;
+  .listing-name,
+  .listing-stats {
     font-size: 0.9em;
   }
 
-  .listing-area {
-    font-size: 0.9em;;
+  .listing-area,
+  .listing-info {
+    font-size: 0.85em;
   }
 
   .listing-address {
-    font-size: 0.8em;
+    font-size: 0.75em;
   }
 
   /* show the info button on restaurant listings */
   .listing-info {
     display: initial;
-    margin: 1.5em 0 0;
+    margin-top: 6%;
     background-color: #699;
     border: 1px solid #9cc;
     padding: 0.6em;
@@ -857,13 +875,17 @@ footer {
    */
 
   .listing-name,
-  .listing-cuisine {
+  .listing-stats {
     font-size: 1em;
   }
 
   .listing-address {
-    padding: 0 1.5em;
-    font-size: 0.9em;
+    font-size: 0.8em;
+  }
+
+  .listing-info {
+    padding: 8px;
+    font-size: 0.9em
   }
 
   /**
