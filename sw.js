@@ -6,16 +6,36 @@ let urlsToCache = [
 	'/restaurant.html',
 	'/css/styles.css',
 	'/data/restaurants.json',
-	'/img/1.jpg',
-	'/img/2.jpg',
-	'/img/3.jpg',
-	'/img/4.jpg',
-	'/img/5.jpg',
-	'/img/6.jpg',
-	'/img/7.jpg',
-	'/img/8.jpg',
-	'/img/9.jpg',
-	'/img/10.jpg',
+	'/img/1-400_md.jpg',
+	'/img/2-400_md.jpg',
+	'/img/3-400_md.jpg',
+	'/img/4-400_md.jpg',
+	'/img/5-400_md.jpg',
+	'/img/6-400_md.jpg',
+	'/img/7-400_md.jpg',
+	'/img/8-400_md.jpg',
+	'/img/9-400_md.jpg',
+	'/img/10-400_md.jpg',
+	'/img/1-800_lg.jpg',
+	'/img/2-800_lg.jpg',
+	'/img/3-800_lg.jpg',
+	'/img/4-800_lg.jpg',
+	'/img/5-800_lg.jpg',
+	'/img/6-800_lg.jpg',
+	'/img/7-800_lg.jpg',
+	'/img/8-800_lg.jpg',
+	'/img/9-800_lg.jpg',
+	'/img/10-800_lg.jpg',
+	'/img/1-1600_xlg.jpg',
+	'/img/2-1600_xlg.jpg',
+	'/img/3-1600_xlg.jpg',
+	'/img/4-1600_xlg.jpg',
+	'/img/5-1600_xlg.jpg',
+	'/img/6-1600_xlg.jpg',
+	'/img/7-1600_xlg.jpg',
+	'/img/8-1600_xlg.jpg',
+	'/img/9-1600_xlg.jpg',
+	'/img/10-1600_xlg.jpg',
 	'/js/main.js',
 	'/js/restaurant_info.js',
 	'/js/dbhelper.js'
@@ -51,6 +71,7 @@ self.addEventListener('fetch', function(event) {
   );
 });
 
+/*
 // Upadate when new content is added
 self.addEventListener('activate', function (event) {
   event.waitUntil (
@@ -64,4 +85,16 @@ self.addEventListener('activate', function (event) {
 	    );
 	  })
    );
+});*/
+
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+            return caches.delete(cacheName);
+        })
+      );
+    })
+  );
 });

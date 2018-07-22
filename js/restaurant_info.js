@@ -56,11 +56,13 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.src = DBHelper.imageUrlForReviews(restaurant);
+  image.srcset = DBHelper.imageUrlForReviewsSrcset(restaurant);
   image.alt = restaurant.alt;
 
   const secondImage = document.getElementById('restaurant-img-2');
-  secondImage.src = DBHelper.imageUrlForRestaurant(restaurant);
+  secondImage.src = DBHelper.imageUrlForListings(restaurant);
+  secondImage.srcset = DBHelper.imageUrlForListingsSrcset(restaurant);
   secondImage.alt = restaurant.alt;
 
   const cuisine = document.getElementById('restaurant-cuisine');

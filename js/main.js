@@ -185,8 +185,9 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'listing-img flex-item-3';
+  image.srcset = DBHelper.imageUrlForListingsSrcset(restaurant);
+  image.src = DBHelper.imageUrlForListings(restaurant);
   image.alt = restaurant.alt;
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
   restaurantLink.append(image);
 
   const name = document.createElement('h3');
