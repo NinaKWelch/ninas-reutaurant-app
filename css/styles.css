@@ -790,7 +790,7 @@ footer a:hover {
   }
 
   .listing-area,
-  .listing-info {
+  .listing-info{
     font-size: 0.85em;
   }
 
@@ -811,6 +811,13 @@ footer a:hover {
   .listing-info:hover {
     cursor: pointer;
     background-color: #9cc
+  }
+
+  .listing-info a {
+      border: none;
+      box-shadow: none;
+      background-color: inherit;
+      color: inherit;
   }
 
   /**

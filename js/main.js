@@ -189,8 +189,12 @@ createRestaurantHTML = (restaurant) => {
 
   const info = document.createElement('button');
   info.className = 'listing-info';
-  info.innerHTML = 'Check Reviews';
   more.append(info);
+
+  const infoLink = document.createElement('a');
+  infoLink.href = DBHelper.urlForRestaurant(restaurant);
+  infoLink.innerHTML = 'Check Reviews';
+  info.append(infoLink);
 
   const rating = document.createElement('div');
   rating.className = 'listing-stats';

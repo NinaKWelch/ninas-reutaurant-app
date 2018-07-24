@@ -151,19 +151,19 @@ class DBHelper {
    * Restaurant image URLs.
   */
   static imageUrlForListings(restaurant) {
-    return (`/img/${restaurant.listings_img}`);
+    return (`./img/${restaurant.listings_img}`);
   }
 
   static imageUrlForListingsSrcset(restaurant) {
-    return (`/img/${restaurant.listings_srcset}`);
+    return (`./img/${restaurant.listings_srcset}`);
   }
 
   static imageUrlForReviews(restaurant) {
-    return (`/img/${restaurant.reviews_img}`);
+    return (`./img/${restaurant.reviews_img}`);
   }
 
   static imageUrlForReviewsSrcset(restaurant) {
-    return (`/img/${restaurant.reviews_srcset}`);
+    return (`./img/${restaurant.reviews_srcset}`);
   }
 
 
