@@ -39,7 +39,7 @@
       <div class="flex-container banner">
         <!-- Beginning map -->
         <section id="map-container" class="main-map flex-item">
-          <h2 class="screenreader">Google Map</h2>
+          <h2 class="screenreader">Google map</h2>
           <div id="map" class="area-map"></div>
         </section>
         <!-- Ending map -->
@@ -50,17 +50,21 @@
 
           <div class="flex-container-center">
            <!-- Beginning location filter -->
-              <label for="neighborhoods-select">Which area?</label>
-              <select id="neighborhoods-select" class="filter-area flex-item" name="neighborhoods" onchange="updateRestaurants()">
-                <option value="all">All Neighborhoods</option>
-              </select>
+              <div class="selection flex-item">
+                <label for="neighborhoods-select" class="label-select">Select area:</label>
+                <select id="neighborhoods-select" class="filter-area" name="neighborhoods" onchange="updateRestaurants()">
+                  <option value="all">All Neighborhoods</option>
+                </select>
+              </div>
             <!-- End location filter -->
 
             <!-- Beginning cuisine filter -->
-              <label for="cuisines-select">Which cuisine?</label>
-              <select id="cuisines-select" class="filter-cuisine flex-item" name="cuisines" onchange="updateRestaurants()">
+            <div class="selection flex-item">
+              <label for="cuisines-select" class="label-select">Select cuisine:</label>
+              <select id="cuisines-select" class="filter-cuisine" name="cuisines" onchange="updateRestaurants()">
                 <option value="all">All Cuisines</option>
               </select>
+            </div>
             <!-- End cuisine filter -->
           </div><!-- /.flex-container-center -->
         </aside>

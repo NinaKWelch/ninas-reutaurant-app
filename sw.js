@@ -56,6 +56,21 @@ self.addEventListener('install', function(event) {
     );
 });
 
+// Upadate when new content is added
+self.addEventListener('activate', function (event) {
+  event.waitUntil (
+	  cache.keys().then(function (cacheNames) {
+		return Promise.all(
+		  cacheNames.filter(function (cacheName) {
+			return cacheName.startsWith('restaurant-') && cacheName != rrCache;
+		  }).map(function(cacheName) {
+			 return cache.delete(cacheName);
+		  })
+	    );
+	  })
+   );
+});
+
 // Return cached responses
 self.addEventListener('fetch', function(event) {
   event.respondWith(
@@ -71,18 +86,3 @@ self.addEventListener('fetch', function(event) {
   );
 });
 
-
-// Upadate when new content is added
-self.addEventListener('activate', function (event) {
-  event.waitUntil (
-	  cache.keys().then(function (cacheNames) {
-		return Promise.all(
-		  cacheNames.filter(function (cacheName) {
-			return cacheName.startsWith('restaurant-') && cacheName != rrCache;
-		  }).map(function(cacheName) {
-			 return cache.delete(cacheName);
-		  })
-	    );
-	  })
-   );
-});

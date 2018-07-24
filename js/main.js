@@ -3,8 +3,6 @@ let restaurants,
   cuisines
 var map
 var markers = []
-/*var ratings = []
-var averageRating = 0;*/
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -134,41 +132,6 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
   });
   addMarkersToMap();
 }
-
-/**
- * Calculate average rating from reviews and add them to the webpage.
- */
-
-/*calcAvarageRating = (reviews = self.restaurant.reviews) => {
-  const stars = document.createElement('span');
-  stars.className = 'rating-stars';
-
-  reviews.forEach(review => {
-    var rating = review.rating;
-    ratings.push(rating);
-  });
-  averageRating = ratings => ratings.reduce((a, b) => a + b, 0) / ratings.length;
-  stars.append(averageRating);
-}
-
-var ratings = [];
-var sum = 0;
-var averageRating = 0;
-
-function calcAvarageRating() {
-  for (var i = 0; i < restaurants.length; i++) {
-  var reviews = restaurants[i].reviews;
-
-  for (var j = 0; j < reviews.length; j++) {
-    var rating = reviews[j].rating;
-      ratings.push(rating);
-    };
-  sum = ratings.reduce(add, 0);
-  averageRating = sum / reviews.length;
-  return averageRating;
-  }
-}
-*/
 
 
 /**

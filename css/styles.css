@@ -74,7 +74,6 @@ a {
 
 a:hover {
   color: #699;
-  text-decoration: underline;
 }
 
 
@@ -94,6 +93,10 @@ footer {
   border-top: 1px solid  #fdfdfd;
   font-size: 0.85em;
   color: #fdfdfd;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 /**
@@ -213,8 +216,13 @@ footer {
   padding: 1.5em 17%;
 }
 
+.label-select {
+  line-height: 2em;
+}
+
 .filter-area,
 .filter-cuisine {
+  width: 100%;
   background-color:  #f2f2f2;
   border: 1px solid #dcdcdc;
   padding: 0.3em;
@@ -227,7 +235,6 @@ footer {
 
 /* Breadcrumbs (reviews page) */
 .breadcrumbs {
-
   padding: 0.4em 1em 0.5em;
   color: #999;
   border-bottom: 1px solid #dcdcdc;
@@ -240,6 +247,10 @@ footer {
 .breadcrumbs li+li:before {
     padding: 5px;
     content: "/\00a0";
+}
+
+.breadcrumbs li a:hover {
+    text-decoration: underline;
 }
 
 /* Avarage rating (reviews page) */
@@ -533,14 +544,18 @@ footer {
     padding: 2em 2%;
   }
 
-  /* move filter options on homepage side by side */
-  .filter-area,
-  .filter-cuisine {
-    width: calc((100% / 2) - 20px);
+  .label-select {
+    padding-bottom: 0;
   }
 
-  .filter-area {
-    margin: 0 20px 0 0;
+  /* move filter options on homepage side by side */
+  .selection {
+      width: 50%;
+  }
+
+  .filter-area,
+  .filter-cuisine {
+    width: 90%;
   }
 
   /**
@@ -667,13 +682,14 @@ footer {
     padding: 1em 3%;
   }
 
-  .filter-area,
-  .filter-cuisine {
+  /* move filter options on homepage side by side */
+  .selection {
     width: 100%;
   }
 
-  .filter-area {
-    margin: 0 0 20px  0;
+  .filter-area,
+  .filter-cuisine {
+    width: 100%;
   }
 
    /**
@@ -713,7 +729,7 @@ footer {
   }
 }
 
-/* Minimum width 800px */
+/* Minimum width 810px */
 @media screen and (min-width: 810px) {
   /*
    * Header
