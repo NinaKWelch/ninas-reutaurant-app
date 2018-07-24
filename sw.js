@@ -71,7 +71,7 @@ self.addEventListener('fetch', function(event) {
   );
 });
 
-/*
+
 // Upadate when new content is added
 self.addEventListener('activate', function (event) {
   event.waitUntil (
@@ -85,16 +85,4 @@ self.addEventListener('activate', function (event) {
 	    );
 	  })
    );
-});*/
-
-self.addEventListener('activate', function(event) {
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-            return caches.delete(cacheName);
-        })
-      );
-    })
-  );
 });

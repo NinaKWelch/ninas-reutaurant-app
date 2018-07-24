@@ -83,6 +83,7 @@ window.initMap = () => {
     scrollwheel: false
   });
   updateRestaurants();
+  addTitleToMap();
 }
 
 /**
@@ -170,6 +171,15 @@ function calcAvarageRating() {
 */
 
 
+/**
+ * NOT WORKING: Add title to map for accessibility
+ */
+function addTitleToMap() {
+  const mapFrame = document.getElementsByTagName('iframe');
+
+  mapFrame.title = 'Google map';
+  return mapFrame;
+}
 
 /**
  * Create restaurant HTML.
@@ -216,7 +226,7 @@ createRestaurantHTML = (restaurant) => {
 
   const info = document.createElement('button');
   info.className = 'listing-info';
-  info.innerHTML = 'View Details';
+  info.innerHTML = 'Check Reviews';
   more.append(info);
 
   const rating = document.createElement('div');
@@ -225,17 +235,17 @@ createRestaurantHTML = (restaurant) => {
 
   const ratingAvarage = document.createElement('span');
   ratingAvarage.className = 'listing-rating';
-  ratingAvarage.innerHTML = '<i class="fas fa-star"></i> ' + ' <i class="fas fa-star"></i> ' + ' <i class="fas fa-star"></i> ' + ' <i class="fas fa-star-half-alt"></i> ' + ' <i class="far fa-star"></i>';
+  ratingAvarage.innerHTML = '<i aria-hidden="true" class="fas fa-star"></i><i aria-hidden="true" class="fas fa-star"></i><i aria-hidden="true" class="fas fa-star"></i><i aria-hidden="true" class="fas fa-star-half-alt"></i><i aria-hidden="true" class="far fa-star"></i><span class="sr-only">Three and half stars</span>';
   rating.append(ratingAvarage);
 
   const reviewLength = document.createElement('span');
   reviewLength.className = 'listing-reviews';
+  reviewLength.setAttribute('name', 'number of reviews');
   reviewLength.innerHTML = ' \( ' + restaurant.reviews.length + ' \)';
   rating.append(reviewLength);
 
   return li
 }
-
 
 /**
  * Add markers for current restaurants to the map.

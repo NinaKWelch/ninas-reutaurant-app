@@ -25,35 +25,39 @@
 
   <body>
     <!-- Beginning header -->
-    <header tabindex="0">
+    <header>
       <!-- Beginning nav -->
-      <nav class="main-nav">
+      <div class="heading">
         <h1 class="brand"><a href="/">
-          <i class="fas fa-utensils"></i>
+          <!-- hide the icon form screen readers -->
+          <i aria-hidden="true" class="fas fa-utensils"></i>
           <span>Restaurant</span> Reviews</a>
         </h1>
-      </nav>
+      </div>
       <!-- End nav -->
 
       <div class="flex-container banner">
         <!-- Beginning map -->
-        <section id="map-container" class="main-map flex-item" area-role="local map">
+        <section id="map-container" class="main-map flex-item">
+          <h2 class="screenreader">Google Map</h2>
           <div id="map" class="area-map"></div>
         </section>
         <!-- Ending map -->
 
         <!-- Beginning search filters -->
-        <aside tabindex="1" class="filter-options flex-item">
-          <h2 class="filter-title">Restaurant Filter</h2>
+        <aside class="filter-options flex-item">
+          <h2 class="screenreader">Filter options</h2>
 
           <div class="flex-container-center">
            <!-- Beginning location filter -->
+              <label for="neighborhoods-select">Which area?</label>
               <select id="neighborhoods-select" class="filter-area flex-item" name="neighborhoods" onchange="updateRestaurants()">
                 <option value="all">All Neighborhoods</option>
               </select>
             <!-- End location filter -->
 
             <!-- Beginning cuisine filter -->
+              <label for="cuisines-select">Which cuisine?</label>
               <select id="cuisines-select" class="filter-cuisine flex-item" name="cuisines" onchange="updateRestaurants()">
                 <option value="all">All Cuisines</option>
               </select>
@@ -66,9 +70,10 @@
     <!-- End header -->
 
     <!-- Beginning main -->
-    <main id="maincontent" tabindex="2" class="content">
+    <main id="maincontent" class="content">
       <!-- Beginning restaurant list -->
       <article class="restaurant-selection">
+        <h2 class="screenreader">Restaurants</h2>
         <ul id="restaurants-list" class="flex-container"></ul>
       </article>
       <!-- End restaurant list -->

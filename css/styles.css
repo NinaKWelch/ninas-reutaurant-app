@@ -26,10 +26,11 @@
 /*
  * Headings
  * h1 - app name
- * h2 - section title (filter results & reviews)
- * h3 - restaurant names
- * h4 - retaurnat cuisines
- * h5 - restaurant neighbourhood
+ * h2 - section title (Google map, filter options, restaurants & reviews)
+ * h3 - restaurant names,
+ * h4 - author, cuisine
+ * h5 - restaurant cuisine, neighbourhood, map
+ * h6 - opening times
 */
 
 
@@ -72,7 +73,8 @@ a {
 }
 
 a:hover {
-  color: #366;
+  color: #699;
+  text-decoration: underline;
 }
 
 
@@ -80,12 +82,6 @@ header {
   background-color: #fdfdfd;
   -webkit-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
           box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
-}
-
-nav {
-  width: 100%;
-  position: fixed; /* keep nav at the top of the page when scrolled */
-  z-index: 3; /* make nav display on top of the map */
 }
 
 select {
@@ -98,6 +94,16 @@ footer {
   border-top: 1px solid  #fdfdfd;
   font-size: 0.85em;
   color: #fdfdfd;
+}
+
+/**
+ *  Screenreaders only content
+ */
+
+.screenreader {
+    position: absolute;
+    left: -1000px;
+    color: #fdfdfd;
 }
 
 /**
@@ -166,8 +172,12 @@ footer {
 * Header
 */
 
-/* Navigantion */
-.main-nav {
+/* Brand */
+/* Navigation */
+.heading {
+  width: 100%;
+  position: fixed; /* keep nav at the top of the page when scrolled */
+  z-index: 3; /* make nav display on top of the map */
   height: 53px;
   background-color: #699;
   border-bottom: 4px solid  #fdfdfd;
@@ -201,10 +211,6 @@ footer {
 /* Filters (homepage) */
 .filter-options {
   padding: 1.5em 17%;
-}
-
-.filter-title {
-  display: none;
 }
 
 .filter-area,
@@ -243,7 +249,7 @@ footer {
 }
 
 .total-reviews {
-  color: #999;
+  color: #666;
 }
 
 
@@ -319,10 +325,6 @@ footer {
   color: #f96;
 }
 
-.listing-reviews {
-  color: #999;
-}
-
 /* Don't show the info button on small screens */
 .listing-info {
   display: none;
@@ -340,7 +342,6 @@ footer {
 
 .reviews-title {
   font-size: 1.4em;
-  color: #f96;
   padding-bottom: 1em;
 }
 
@@ -396,7 +397,6 @@ footer {
 .restaurant-info {
   background-color: #fdfdfd;
   border-top: 1px solid #dcdcdc;
-
 }
 
 .name {
@@ -406,7 +406,7 @@ footer {
 .cuisine {
   padding-bottom: 0.5em;
   line-height: 1.5em;
-  color: #699;
+  color: #366;
 }
 
 .address {
@@ -417,7 +417,6 @@ footer {
 
 .opening-times {
   padding: 1em 1.5em;
-  color: #999;
 }
 
 .opening-times h4,
@@ -504,7 +503,7 @@ footer {
   * Header
   */
 
-  .main-nav {
+  .heading {
      height: 62px;
   }
 

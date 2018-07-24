@@ -50,6 +50,7 @@ fetchRestaurantFromURL = (callback) => {
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
+  name.setAttribute('name', 'restaurant'); // for accessibility
   name.innerHTML = restaurant.name;
 
   const address = document.getElementById('restaurant-address');
@@ -66,6 +67,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   secondImage.alt = restaurant.alt;
 
   const cuisine = document.getElementById('restaurant-cuisine');
+  cuisine.setAttribute('name', 'cuisine'); // for accessibility
   cuisine.innerHTML = restaurant.cuisine_type;
 
   // fill operating hours
@@ -136,6 +138,7 @@ createReviewHTML = (review) => {
   const name = document.createElement('h4');
   name.className = 'reviews-name flex-item';
   name.innerHTML = review.name;
+  name.setAttribute('name', 'author'); // for accessibility
   section.appendChild(name);
 
   const date = document.createElement('time');
@@ -145,7 +148,22 @@ createReviewHTML = (review) => {
 
   const rating = document.createElement('p');
   rating.className = 'reviews-rating flex-item';
-  rating.innerHTML = `Rating: ${review.rating}`;
+
+  // Show the review rating in stars
+  if (review.rating === 5) {
+    rating.innerHTML = '<i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i><span class="sr-only">Five stars</span>';
+  } else if (review.rating === 4) {
+    rating.innerHTML = '<i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="far fa-star"></i><span class="sr-only">Four stars</span>';
+  } else if (review.rating === 3) {
+    rating.innerHTML = '<i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i><span class="sr-only">Three stars</span>';
+  } else if (review.rating === 2) {
+    rating.innerHTML = '<i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i><span class="sr-only">Two stars</span>';
+  } else if (review.rating === 1) {
+    rating.innerHTML = '<i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i><span class="sr-only">One star</span>';
+  } else if (review.rating === 0) {
+    rating.innerHTML = '<i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> </i><span class="sr-only">No stars</span>';
+  }
+
   section.appendChild(rating);
 
   const comments = document.createElement('p');
@@ -181,3 +199,28 @@ getParameterByName = (name, url) => {
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+
+/**
+ * NOT WORKING Count the average review rating
+*/
+function getAverageRating() {
+  const avarageRating = document.getElementById(average-rating);
+  const reviews = restaurant.reviews;
+  var restaurantRatings = [];
+  var sum = 0;
+  var average = 0;
+
+  reviews.forEach(function(review) {
+    var thisRating = review.rating;
+    restaurantRatings.push(thisRating);
+  });
+
+  // check there are reviews before calculating the average
+  if (restaurantRatings.length > 0) {
+    sum = restaurantRatings.reduce(function(a, b) { return a + b; });
+    average = sum / restaurantRatings.length;
+  }
+  avarageRating.innerHTML = average;
+  return average;
+}
+
