@@ -50,7 +50,7 @@ fetchRestaurantFromURL = (callback) => {
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
-  name.setAttribute('name', 'restaurant'); // for accessibility
+  name.setAttribute('aria-label', 'restaurant'); // for accessibility
   name.innerHTML = restaurant.name;
 
   const address = document.getElementById('restaurant-address');
@@ -67,7 +67,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   secondImage.alt = restaurant.alt;
 
   const cuisine = document.getElementById('restaurant-cuisine');
-  cuisine.setAttribute('name', 'cuisine'); // for accessibility
+  cuisine.setAttribute('aria-label', 'cuisine'); // for accessibility
   cuisine.innerHTML = restaurant.cuisine_type;
 
   // fill operating hours
@@ -138,7 +138,7 @@ createReviewHTML = (review) => {
   const name = document.createElement('h4');
   name.className = 'reviews-name flex-item';
   name.innerHTML = review.name;
-  name.setAttribute('name', 'author'); // for accessibility
+  name.setAttribute('aria-label', 'author'); // for accessibility
   section.appendChild(name);
 
   const date = document.createElement('time');
