@@ -182,19 +182,17 @@ class DBHelper {
   }
 }
 
+
 /**
  * Service Worker
  */
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('./sw.js').then(function(registration) {
-      // Registration was successful
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }, function(err) {
-      // registration failed :(
-      console.log('ServiceWorker registration failed: ', err);
+// register service worker
+if (navigator.serviceWorker) {
+      navigator.serviceWorker.register('./sw.js')
+      .then(function(registration) {
+       // Registration was successful
+       console.log('Registration worked.  Scope is ' + registration.scope);
+    }).catch(function(error) {
+      console.log('registration failed with ' + error);
     });
-  });
 }
-
-

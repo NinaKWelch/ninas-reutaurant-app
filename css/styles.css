@@ -411,6 +411,7 @@ footer a:hover {
 
 .name {
   padding: 0.85em 0;
+  color: #f96;
 }
 
 .cuisine {
@@ -862,10 +863,6 @@ footer a:hover {
   /**
    * Restaurant info (reviews page)
    */
-
-  .name {
-    color: #f96;
-  }
 
   .restaurant-map {
     margin: 7%;
