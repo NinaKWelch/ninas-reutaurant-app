@@ -188,11 +188,10 @@ class DBHelper {
  */
 // register service worker
 if (navigator.serviceWorker) {
-      navigator.serviceWorker.register('./sw.js')
-      .then(function(registration) {
+      navigator.serviceWorker.register('./sw.js').then(function(registration) {
        // Registration was successful
        console.log('Registration worked.  Scope is ' + registration.scope);
     }).catch(function(error) {
-      console.log('registration failed with ' + error);
-    });
+      console.log('Registration failed with ' + error);
+  });
 }

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-  <!-- Laguage for the page content -->
-  <html lang="en">
+<!-- Laguage for the page content -->
+<html lang="en">
 
-  <head>
+<head>
     <!-- Character encoding
     https://en.wikipedia.org/wiki/UTF-8 -->
     <meta charset="utf-8">
@@ -21,72 +21,75 @@
 
     <!-- Styles -->
     <link href="css/styles.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- Beginning header -->
     <header>
-      <!-- Beginning nav -->
-      <div class="heading">
-        <h1 class="brand"><a href="./">
-          <!-- hide the icon form screen readers -->
-          <i aria-hidden="true" class="fas fa-utensils"></i>
-          <span>Restaurant</span> Reviews</a>
-        </h1>
-      </div>
-      <!-- End nav -->
+        <!-- Beginning nav -->
+        <div class="heading">
+            <h1 class="brand">
+                <a href="./">
+                    <!-- hide the icon form screen readers -->
+                    <i aria-hidden="true" class="fas fa-utensils"></i>
+                    <span>Restaurant</span> Reviews</a>
+            </h1>
+        </div>
+        <!-- End nav -->
 
-      <div class="flex-container banner">
-        <!-- Beginning map -->
-        <section id="map-container" class="main-map flex-item">
-          <h2 class="screenreader">Google map</h2>
-          <div id="map" class="area-map"></div>
-        </section>
-        <!-- Ending map -->
+        <div class="flex-container banner">
+            <!-- Beginning map -->
+            <section id="map-container" class="main-map flex-item">
+                <h2 class="screenreader">Google map</h2>
+                <div id="map" class="area-map"></div>
+            </section>
+            <!-- Ending map -->
 
-        <!-- Beginning search filters -->
-        <aside class="filter-options flex-item">
-          <h2 class="screenreader">Filter options</h2>
+            <!-- Beginning search filters -->
+            <aside class="filter-options flex-item">
+                <h2 class="screenreader">Filter options</h2>
 
-          <div class="flex-container-center">
-           <!-- Beginning location filter -->
-              <div class="selection flex-item">
-                <label for="neighborhoods-select" class="label-select">Select area:</label>
-                <select id="neighborhoods-select" class="filter-area" name="neighborhoods" onchange="updateRestaurants()">
+                <div class="flex-container-center">
+                    <!-- Beginning location filter -->
+                    <div class="selection flex-item">
+                        <label for="neighborhoods-select" class="label-select">Select area:</label>
+                        <select id="neighborhoods-select" class="filter-area" name="neighborhoods" onchange="updateRestaurants()">
                   <option value="all">All Neighborhoods</option>
                 </select>
-              </div>
-            <!-- End location filter -->
+                    </div>
+                    <!-- End location filter -->
 
-            <!-- Beginning cuisine filter -->
-            <div class="selection flex-item">
-              <label for="cuisines-select" class="label-select">Select cuisine:</label>
-              <select id="cuisines-select" class="filter-cuisine" name="cuisines" onchange="updateRestaurants()">
+                    <!-- Beginning cuisine filter -->
+                    <div class="selection flex-item">
+                        <label for="cuisines-select" class="label-select">Select cuisine:</label>
+                        <select id="cuisines-select" class="filter-cuisine" name="cuisines" onchange="updateRestaurants()">
                 <option value="all">All Cuisines</option>
               </select>
-            </div>
-            <!-- End cuisine filter -->
-          </div><!-- /.flex-container-center -->
-        </aside>
-        <!-- End search filters -->
-      </div><!-- /.flex-container -->
+                    </div>
+                    <!-- End cuisine filter -->
+                </div>
+                <!-- /.flex-container-center -->
+            </aside>
+            <!-- End search filters -->
+        </div>
+        <!-- /.flex-container -->
     </header>
     <!-- End header -->
 
     <!-- Beginning main -->
     <main id="maincontent" class="content">
-      <!-- Beginning restaurant list -->
-      <article class="restaurant-selection">
-        <h2 class="screenreader">Restaurants</h2>
-        <ul id="restaurants-list" class="flex-container"></ul>
-      </article>
-      <!-- End restaurant list -->
+        <!-- Beginning restaurant list -->
+        <article class="restaurant-selection">
+            <h2 class="screenreader">Restaurants</h2>
+            <ul id="restaurants-list" class="flex-container"></ul>
+        </article>
+        <!-- End restaurant list -->
     </main>
     <!-- End main -->
 
     <!-- Beginning footer -->
     <footer id="footer">
-      <p>Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a><br> All Rights Reserved.</p>
+        <p>Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a><br> All Rights Reserved.</p>
     </footer>
     <!-- End footer -->
 
@@ -102,6 +105,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4&libraries=places&callback=initMap" async defer></script>
     <!-- End scripts -->
 
-  </body>
+</body>
 
 </html>
