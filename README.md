@@ -6,9 +6,9 @@ Udacity Front-End Web Development Nanodegree Project 6 - Restaurant App
 [https://ninakwelch.github.io/ninas-restaurant-app/](https://ninakwelch.github.io/ninas-restaurant-app/)
 
 # Screenshots
-![](http://res.cloudinary.com/ninaw/image/upload/v1532537844/restaurant_reviews_11_z4cecd.png)
-![](http://res.cloudinary.com/ninaw/image/upload/v1532537844/restaurant_reviews_12_zq4amr.png)
-![](http://res.cloudinary.com/ninaw/image/upload/v1532537844/restaurant_reviews_13_hdnpxk.png)
+![](http://res.cloudinary.com/ninaw/image/upload/c_scale,w_300/v1532537844/restaurant_reviews_11_z4cecd.png)
+![](http://res.cloudinary.com/ninaw/image/upload/c_scale,w_300/v1532537844/restaurant_reviews_12_zq4amr.png)
+![](http://res.cloudinary.com/ninaw/image/upload/c_scale,w_300/v1532537844/restaurant_reviews_13_hdnpxk.png)
 
 
 
