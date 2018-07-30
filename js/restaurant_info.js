@@ -50,16 +50,24 @@ fetchRestaurantFromURL = (callback) => {
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
+  name.setAttribute('aria-label', 'restaurant'); // for accessibility
   name.innerHTML = restaurant.name;
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.src = DBHelper.imageUrlForReviews(restaurant);
+  image.srcset = DBHelper.imageUrlForReviewsSrcset(restaurant);
+  image.alt = restaurant.alt;
+
+  const secondImage = document.getElementById('restaurant-img-2');
+  secondImage.src = DBHelper.imageUrlForListings(restaurant);
+  secondImage.srcset = DBHelper.imageUrlForListingsSrcset(restaurant);
+  secondImage.alt = restaurant.alt;
 
   const cuisine = document.getElementById('restaurant-cuisine');
+  cuisine.setAttribute('aria-label', 'cuisine'); // for accessibility
   cuisine.innerHTML = restaurant.cuisine_type;
 
   // fill operating hours
@@ -76,14 +84,17 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
   for (let key in operatingHours) {
-    const row = document.createElement('tr');
+    const row = document.createElement('div');
+    row.className = 'flex-container';
 
-    const day = document.createElement('td');
+    const day = document.createElement('div');
     day.innerHTML = key;
+    day.className = 'weekdays flex-item-1';
     row.appendChild(day);
 
-    const time = document.createElement('td');
+    const time = document.createElement('div');
     time.innerHTML = operatingHours[key];
+    time.className = 'opening-hours flex-item-2';
     row.appendChild(time);
 
     hours.appendChild(row);
@@ -96,6 +107,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
+  title.className = 'reviews-title';
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
@@ -117,21 +129,47 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
-  const name = document.createElement('p');
-  name.innerHTML = review.name;
-  li.appendChild(name);
+  li.className = 'reviews-listings flex-item';
 
-  const date = document.createElement('p');
+  const section = document.createElement('section');
+  section.className = 'flex-container';
+  li.append(section);
+
+  const name = document.createElement('h4');
+  name.className = 'reviews-name flex-item';
+  name.innerHTML = review.name;
+  name.setAttribute('aria-label', 'author'); // for accessibility
+  section.appendChild(name);
+
+  const date = document.createElement('time');
+  date.className = 'reviews-date flex-item';
   date.innerHTML = review.date;
-  li.appendChild(date);
+  section.appendChild(date);
 
   const rating = document.createElement('p');
-  rating.innerHTML = `Rating: ${review.rating}`;
-  li.appendChild(rating);
+  rating.className = 'reviews-rating flex-item';
+
+  // Show the review rating in stars
+  if (review.rating === 5) {
+    rating.innerHTML = '<i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i><span class="sr-only">Five stars</span>';
+  } else if (review.rating === 4) {
+    rating.innerHTML = '<i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="far fa-star"></i><span class="sr-only">Four stars</span>';
+  } else if (review.rating === 3) {
+    rating.innerHTML = '<i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i><span class="sr-only">Three stars</span>';
+  } else if (review.rating === 2) {
+    rating.innerHTML = '<i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i><span class="sr-only">Two stars</span>';
+  } else if (review.rating === 1) {
+    rating.innerHTML = '<i aria-hidden="true" class="fas fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i><span class="sr-only">One star</span>';
+  } else if (review.rating === 0) {
+    rating.innerHTML = '<i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> <i aria-hidden="true" class="far fa-star"></i> </i><span class="sr-only">No stars</span>';
+  }
+
+  section.appendChild(rating);
 
   const comments = document.createElement('p');
+  comments.className = 'reviews-text flex-item';
   comments.innerHTML = review.comments;
-  li.appendChild(comments);
+  section.appendChild(comments);
 
   return li;
 }
@@ -161,3 +199,28 @@ getParameterByName = (name, url) => {
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+
+/**
+ * NOT WORKING Count the average review rating
+
+function getAverageRating() {
+  const avarageRating = document.getElementById('average-rating');
+  const reviews = restaurant.reviews;
+  var restaurantRatings = [];
+  var sum = 0;
+  var average = 0;
+
+  reviews.forEach(function(review) {
+    var thisRating = review.rating;
+    restaurantRatings.push(thisRating);
+  });
+
+  // check there are reviews before calculating the average
+  if (restaurantRatings.length > 0) {
+    sum = restaurantRatings.reduce(function(a, b) { return a + b; });
+    average = sum / restaurantRatings.length;
+  }
+  avarageRating.innerHTML = average;
+  return average;
+}
+*/

@@ -1,0 +1,24 @@
+{
+  "name": "ninas-restaurant-app",
+  "version": "1.0.0",
+  "description": "Restaurant New York restaurant reviews",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NinaKWelch/ninas-restaurant-app.git"
+  },
+  "author": "Nina K Welch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NinaKWelch/ninas-restaurant-app/issues"
+  },
+  "homepage": "https://github.com/NinaKWelch/ninas-restaurant-app#readme",
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-imagemin": "^2.0.1",
+    "grunt-responsive-images": "^1.10.1"
+  }
+}

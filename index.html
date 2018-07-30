@@ -1,65 +1,109 @@
-
 <!DOCTYPE html>
 <!-- Laguage for the page content -->
 <html lang="en">
 
 <head>
-  <!-- Character encoding
+    <!-- Character encoding
     https://en.wikipedia.org/wiki/UTF-8 -->
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>Restaurant Reviews</title>
+    <title>Restaurant Reviews</title>
 
-  <!-- Control layout on mobile browsers
+    <!-- Control layout on mobile browsers
     https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- TODO: Add Google Fonts -->
+    <!-- Fix issues with default styles on different browsers -->
+    <link href="https://necolas.github.io/normalize.css/latest/normalize.css" rel="stylesheet">
 
-  <!-- Fix issues with default styles on different browsers -->
-  <link href="https://necolas.github.io/normalize.css/latest/normalize.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
-  <!-- Styles -->
-  <link href="css/styles.css" rel="stylesheet">
+    <!-- Styles -->
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-  <header>
-    <nav>
-      <h1><a href="/">Restaurant Reviews</a></h1>
-    </nav>
-  </header>
+    <!-- Beginning header -->
+    <header>
+        <!-- Beginning nav -->
+        <div class="heading">
+            <h1 class="brand">
+                <a href="./">
+                    <!-- hide the icon form screen readers -->
+                    <i aria-hidden="true" class="fas fa-utensils"></i>
+                    <span>Restaurant</span> Reviews</a>
+            </h1>
+        </div>
+        <!-- End nav -->
 
-  <main id="maincontent">
-    <section id="map-container">
-      <div id="map"></div>
-    </section>
-    <section>
-      <div class="filter-options">
-        <h2>Filter Results</h2>
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
-          <option value="all">All Neighborhoods</option>
-        </select>
-        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
-          <option value="all">All Cuisines</option>
-        </select>
-      </div>
-      <ul id="restaurants-list"></ul>
-    </section>
-  </main>
+        <div class="flex-container banner">
+            <!-- Beginning map -->
+            <section id="map-container" class="main-map flex-item">
+                <h2 class="screenreader">Google map</h2>
+                <div id="map" class="area-map"></div>
+            </section>
+            <!-- Ending map -->
 
-  <footer id="footer">
-    Copyright (c) 2018 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
-  </footer>
+            <!-- Beginning search filters -->
+            <aside class="filter-options flex-item">
+                <h2 class="screenreader">Filter options</h2>
 
-  <!-- Javascript -->
-  <script src="js/dbhelper.js"></script>
-  <script src="js/main.js"></script>
-  <!-- <script src="js/restaurant_info.js"></script> -->
+                <div class="flex-container-center">
+                    <!-- Beginning location filter -->
+                    <div class="selection flex-item">
+                        <label for="neighborhoods-select" class="label-select">Select area:</label>
+                        <select id="neighborhoods-select" class="filter-area" name="neighborhoods" onchange="updateRestaurants()">
+                  <option value="all">All Neighborhoods</option>
+                </select>
+                    </div>
+                    <!-- End location filter -->
 
-  <!-- Link to the Google Maps API
+                    <!-- Beginning cuisine filter -->
+                    <div class="selection flex-item">
+                        <label for="cuisines-select" class="label-select">Select cuisine:</label>
+                        <select id="cuisines-select" class="filter-cuisine" name="cuisines" onchange="updateRestaurants()">
+                <option value="all">All Cuisines</option>
+              </select>
+                    </div>
+                    <!-- End cuisine filter -->
+                </div>
+                <!-- /.flex-container-center -->
+            </aside>
+            <!-- End search filters -->
+        </div>
+        <!-- /.flex-container -->
+    </header>
+    <!-- End header -->
+
+    <!-- Beginning main -->
+    <main id="maincontent" class="content">
+        <!-- Beginning restaurant list -->
+        <article class="restaurant-selection">
+            <h2 class="screenreader">Restaurants</h2>
+            <ul id="restaurants-list" class="flex-container"></ul>
+        </article>
+        <!-- End restaurant list -->
+    </main>
+    <!-- End main -->
+
+    <!-- Beginning footer -->
+    <footer id="footer">
+        <p>Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a><br> All Rights Reserved.</p>
+    </footer>
+    <!-- End footer -->
+
+    <!-- Beginning scripts -->
+    <!-- Database helpers -->
+    <script src="js/dbhelper.js"></script>
+    <!-- Main javascript file -->
+    <script src="js/main.js"></script>
+
+
+    <!-- Google Maps
     https://developers.google.com/maps/documentation/javascript/tutorial -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4&libraries=places&callback=initMap" async defer></script>
+    <!-- End scripts -->
 
 </body>
 
