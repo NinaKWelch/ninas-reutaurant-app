@@ -136,13 +136,14 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 
 /**
  * NOT WORKING: Add title to map for accessibility
- */
+
 function addTitleToMap() {
   const mapFrame = document.getElementsByTagName('iframe');
 
   mapFrame.title = 'Google map';
   return mapFrame;
 }
+ */
 
 /**
  * Create restaurant HTML.

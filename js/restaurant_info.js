@@ -202,7 +202,7 @@ getParameterByName = (name, url) => {
 
 /**
  * NOT WORKING Count the average review rating
-*/
+
 function getAverageRating() {
   const avarageRating = document.getElementById('average-rating');
   const reviews = restaurant.reviews;
@@ -223,4 +223,4 @@ function getAverageRating() {
   avarageRating.innerHTML = average;
   return average;
 }
-
+*/
