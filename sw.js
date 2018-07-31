@@ -79,8 +79,7 @@ self.addEventListener('activate', function(event) {
 				// filter the list of cache names
 				cacheNames.filter(function(cacheName) {
 					// get caches that are other than the name of staticCacheName
-					return cacheName.startsWith('restaurant-') &&
-					       cacheName != staticCacheName;
+					return cacheName.startsWith('restaurant-') && cacheName != staticCacheName;
 				// delete the other caches
 				}).map(function(cacheName) {
 					return caches.delete(cacheName);
