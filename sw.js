@@ -1,7 +1,7 @@
 let staticCacheName = 'restaurant-static-v1';
 
 // Cached files
-let urlToCache = [
+let urlsToCache = [
     '/',
 	'/restaurant.html',
 	'/css/styles.css',
