@@ -39,7 +39,7 @@ let urlsToCache = [
 	'/js/main.js',
 	'/js/restaurant_info.js',
 	'/js/dbhelper.js'
-]
+];
 
 // Callback for the install event
 self.addEventListener('install', function(event) {
@@ -47,7 +47,7 @@ self.addEventListener('install', function(event) {
 	event.waitUntil(
 		caches.open(staticCacheName)
 		.then(function(cache) {
-			console.log('Opened cache');
+			console.log(cache);
 			return cache.addAll(urlsToCache);
 		})
 	);
@@ -84,7 +84,7 @@ self.addEventListener('activate', function(event) {
 					       cacheName != staticCacheName;
 				// delete the other caches
 				}).map(function(cacheName) {
-					return cache.delete(cacheName);
+					return caches.delete(cacheName);
 				})
 			);
 		})
