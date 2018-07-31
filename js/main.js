@@ -81,7 +81,7 @@ window.initMap = () => {
     scrollwheel: false
   });
   updateRestaurants();
-  addTitleToMap();
+  /*addTitleToMap();*/
 }
 
 /**
