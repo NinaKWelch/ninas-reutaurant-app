@@ -45,8 +45,7 @@ let urlsToCache = [
 self.addEventListener('install', function(event) {
 	// Perform install steps
 	event.waitUntil(
-		caches.open(staticCacheName)
-		.then(function(cache) {
+		caches.open(staticCacheName).then(function(cache) {
 			console.log(cache);
 			return cache.addAll(urlsToCache);
 		})
