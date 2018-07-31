@@ -53,22 +53,6 @@ self.addEventListener('install', function(event) {
 });
 
 
-// Return cached responses
-self.addEventListener('fetch', function(event) {
-	event.respondWith(
-		caches.match(event.request)
-		.then(function(response) {
-			// Cache hit - return response
-			if (response) {
-				return response;
-			}
-				return fetch(event.request);
-			}
-		)
-	);
-});
-
-
 // Upadate cache when new content is added
 self.addEventListener('activate', function(event) {
 	event.waitUntil(
@@ -88,4 +72,17 @@ self.addEventListener('activate', function(event) {
 		})
 	);
 });
+
+
+
+// Return cached responses
+self.addEventListener('fetch', function(event) {
+	event.respondWith(
+		caches.match(event.request).then(function(response) {
+			// Cache hit - return response
+				return response || fetch(event.request);
+		})
+	);
+});
+
 
