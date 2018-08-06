@@ -1,6 +1,6 @@
-var staticCacheName = 'restaurant-static-v1';
+var staticCacheName = 'restaurant-cache-1';
 
-// Cached files
+//Cached files
 let urlsToCache = [
     '/',
 	'/restaurant.html',
@@ -38,33 +38,35 @@ let urlsToCache = [
 	'/img/10-1600_xlg.jpg',
 	'/js/main.js',
 	'/js/restaurant_info.js',
-	'/js/dbhelper.js'
+	'/js/dbhelper.js',
+	'/js/register_sw.js'
 ];
 
-// Callback for the install event
+//Callback for the install event
 self.addEventListener('install', function(event) {
-	// Perform install steps
+	//perform install steps
 	event.waitUntil(
 		caches.open(staticCacheName).then(function(cache) {
 			console.log(cache);
 			return cache.addAll(urlsToCache);
+		}).catch(err => {
+			console.log(err);
 		})
 	);
 });
 
-
 // Upadate cache when new content is added
 self.addEventListener('activate', function(event) {
 	event.waitUntil(
-		// get all the chache names that exist
+		//get all the chache names that exist
 		caches.keys().then(function(cacheNames) {
-			// wait until the completion of all the promises
+			//wait until the completion of all the promises
 			return Promise.all(
-				// filter the list of cache names
+				//filter the list of cache names
 				cacheNames.filter(function(cacheName) {
-					// get caches that are other than the name of staticCacheName
+					//get caches that are other than the name of staticCacheName
 					return cacheName.startsWith('restaurant-') && cacheName != staticCacheName;
-				// delete the other caches
+				//delete the other caches
 				}).map(function(cacheName) {
 					return caches.delete(cacheName);
 				})
@@ -73,14 +75,12 @@ self.addEventListener('activate', function(event) {
 	);
 });
 
-
-
-// Return cached responses
+//Return cached responses
 self.addEventListener('fetch', function(event) {
 	event.respondWith(
 		caches.match(event.request).then(function(response) {
-			// Cache hit - return response
-				return response || fetch(event.request);
+			//cache hit - return response
+			return response || fetch(event.request);
 		})
 	);
 });
