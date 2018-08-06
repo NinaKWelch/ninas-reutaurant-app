@@ -1,4 +1,4 @@
-var staticCacheName = 'restaurant-static-v1';
+var staticCacheName = 'restaurant-cache-v1';
 
 //Cached files
 let urlsToCache = [
@@ -43,22 +43,32 @@ let urlsToCache = [
 ];
 
 //Callback for the install event
-self.addEventListener('install', function (event) {
-	event.waitUntil(caches.open(staticCacheName).then(function (cache) {
+self.addEventListener('install', function(event) {
+	//perform install steps
+	event.waitUntil(
+		caches.open(staticCacheName).then(function(cache) {
+			console.log(cache);
 			return cache.addAll(urlsToCache);
+		}).catch(err => {
+			console.log(err);
 		})
 	);
 });
 
 // Upadate cache when new content is added
-self.addEventListener('activate', function (event) {
+self.addEventListener('activate', function(event) {
 	event.waitUntil(
-		caches.keys().then(function (cacheNames) {
+		//get all the chache names that exist
+		caches.keys().then(function(cacheNames) {
+			//wait until the completion of all the promises
 			return Promise.all(
-				cacheNames.filter(function (cacheName) {
+				//filter the list of cache names
+				cacheNames.filter(function(cacheName) {
+					//get caches that are other than the name of staticCacheName
 					return cacheName.startsWith('restaurant-') && cacheName != staticCacheName;
-				}).map(function (cacheName) {
-					return caches['delete'](cacheName);
+				//delete the other caches
+				}).map(function(cacheName) {
+					return caches.delete(cacheName);
 				})
 			);
 		})
@@ -66,15 +76,11 @@ self.addEventListener('activate', function (event) {
 });
 
 //Return cached responses
-self.addEventListener('fetch', function (event) {
-  event.respondWith(
-    caches.match(event.request).then(function (resp) {
-      return resp || fetch(event.request).then(function (response) {
-        return caches.open('v1').then(function (cache) {
-          cache.put(event.request, response.clone());
-          return response;
-        });
-      });
-    })
-  );
+self.addEventListener('fetch', function(event) {
+	event.respondWith(
+		caches.match(event.request).then(function(response) {
+			//cache hit - return response
+			return response || fetch(event.request);
+		})
+	);
 });
