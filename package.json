@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/NinaKWelch/ninas-restaurant-app#readme",
   "devDependencies": {
-    "grunt": "^1.0.3",
-    "grunt-contrib-imagemin": "^2.0.1",
+    "grunt": "^1.0.4",
+    "grunt-contrib-imagemin": "^3.1.0",
     "grunt-responsive-images": "^1.10.1"
   }
 }

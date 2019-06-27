@@ -1,4 +1,4 @@
-var staticCacheName = 'restaurant-cache-1';
+var staticCacheName = 'restaurant-cache-v1';
 
 //Cached files
 let urlsToCache = [
@@ -84,5 +84,3 @@ self.addEventListener('fetch', function(event) {
 		})
 	);
 });
-
-
