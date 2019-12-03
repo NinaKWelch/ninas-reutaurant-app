@@ -2,9 +2,10 @@
 {
     "name": "Find restaurants in New York",
     "short_name": "NY Dining",
-    "start_url": "/?homescreen=1",
+    "start_url": "/ninas-restaurant-app/",
     "background_color": "#ebebeb",
     "theme_color": "#669999",
+    "display": "standalone",
     "icons": [
         {
         "src": "/img/icons-192.png",
