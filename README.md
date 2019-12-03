@@ -34,14 +34,12 @@ Udacity Front-End Web Development Nanodegree Project 6 - Restaurant App
 
 # Local Server
 
-1. Run `python -V` to check you have Python installed. If you don't have Python installed, navigate to Python's website to download and install the software.
-
-2. If you have Python 2.x, spin up the server with `python -m SimpleHTTPServer 8000` 
-
-3. For Python 3.x, you can use `python3 -m http.server 8000`. 
-
-4. With your server running, visit the site: http://localhost:8000
+1. Run `python -V` to check installed Python version
+2. For Python 2.x, run `python -m SimpleHTTPServer 8000` 
+3. For Python 3.x, run `python3 -m http.server 8000`.
+4. Visit http://localhost:8000
 
 # To Do
 
-- add function to calculate avarage stars for reviews
+- Add function to calculate avarage stars for reviews
+- Improve performance (images and passive listeners)
