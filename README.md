@@ -31,3 +31,17 @@ Udacity Front-End Web Development Nanodegree Project 6 - Restaurant App
 # Original Project Files
 
 [https://github.com/udacity/mws-restaurant-stage-1/tree/google-maps](https://github.com/udacity/mws-restaurant-stage-1/tree/google-maps)
+
+# Local Server
+
+1. Run `python -V` to check you have Python installed. If you don't have Python installed, navigate to Python's website to download and install the software.
+
+2. If you have Python 2.x, spin up the server with `python -m SimpleHTTPServer 8000` 
+
+3. For Python 3.x, you can use `python3 -m http.server 8000`. 
+
+4. With your server running, visit the site: http://localhost:8000
+
+# To Do
+
+- add function to calculate avarage stars for reviews

@@ -199,28 +199,3 @@ getParameterByName = (name, url) => {
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
-
-/**
- * NOT WORKING Count the average review rating
-
-function getAverageRating() {
-  const avarageRating = document.getElementById('average-rating');
-  const reviews = restaurant.reviews;
-  var restaurantRatings = [];
-  var sum = 0;
-  var average = 0;
-
-  reviews.forEach(function(review) {
-    var thisRating = review.rating;
-    restaurantRatings.push(thisRating);
-  });
-
-  // check there are reviews before calculating the average
-  if (restaurantRatings.length > 0) {
-    sum = restaurantRatings.reduce(function(a, b) { return a + b; });
-    average = sum / restaurantRatings.length;
-  }
-  avarageRating.innerHTML = average;
-  return average;
-}
-*/

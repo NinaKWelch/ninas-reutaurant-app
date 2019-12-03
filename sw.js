@@ -1,7 +1,7 @@
-var staticCacheName = 'restaurant-cache-v1';
+const staticCacheName = 'restaurant-cache-v1';
 
 //Cached files
-let urlsToCache = [
+const urlsToCache = [
     '/',
 	'/restaurant.html',
 	'/css/styles.css',
@@ -36,6 +36,9 @@ let urlsToCache = [
 	'/img/8-1600_xlg.jpg',
 	'/img/9-1600_xlg.jpg',
 	'/img/10-1600_xlg.jpg',
+	'/img/favicon.ico',
+	'/img/icons-192.png',
+	'/img/icons-512.png',
 	'/js/main.js',
 	'/js/restaurant_info.js',
 	'/js/dbhelper.js',
