@@ -1,7 +1,10 @@
 
 {
-    "short_name": "NY Dining",
     "name": "Find restaurants in New York",
+    "short_name": "NY Dining",
+    "start_url": "/?homescreen=1",
+    "background_color": "#ebebeb",
+    "theme_color": "#669999",
     "icons": [
         {
         "src": "/img/icons-192.png",
@@ -13,9 +16,5 @@
         "type": "image/png",
         "sizes": "512x512"
         }
-    ],
-    "start_url": "/?home=true",
-    "display": "standalone",
-    "background_color": "#ebebeb",
-    "theme_color": "#669999"
+    ]
 }
