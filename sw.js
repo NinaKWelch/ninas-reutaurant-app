@@ -4,6 +4,7 @@ const staticCacheName = 'restaurant-cache-v1';
 const urlsToCache = [
     '/',
 	'/restaurant.html',
+	'/manifest.json',
 	'/css/styles.css',
 	'/data/restaurants.json',
 	'/img/1-400_md.jpg',
