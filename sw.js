@@ -39,6 +39,7 @@ const urlsToCache = [
 	'/img/favicon.ico',
 	'/img/icons-192.png',
 	'/img/icons-512.png',
+	'/img/apple-touch-icon.png',
 	'/js/main.js',
 	'/js/restaurant_info.js',
 	'/js/dbhelper.js',

@@ -1,11 +1,8 @@
 
 {
     "name": "Find restaurants in New York",
-    "short_name": "NY Dining",
+    "short_name": "EatOut NY",
     "start_url": "/ninas-restaurant-app/",
-    "background_color": "#ebebeb",
-    "theme_color": "#669999",
-    "display": "standalone",
     "icons": [
         {
         "src": "/img/icons-192.png",
@@ -17,5 +14,8 @@
         "type": "image/png",
         "sizes": "512x512"
         }
-    ]
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
 }
