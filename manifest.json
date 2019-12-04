@@ -5,12 +5,12 @@
     "start_url": "/ninas-restaurant-app/",
     "icons": [
         {
-        "src": "/img/icons-192.png",
+        "src": "/ninas-restaurant-app/img/icons-192.png",
         "type": "image/png",
         "sizes": "192x192"
         },
         {
-        "src": "/img/icons-512.png",
+        "src": "/ninas-restaurant-app/img/icons-512.png",
         "type": "image/png",
         "sizes": "512x512"
         }
